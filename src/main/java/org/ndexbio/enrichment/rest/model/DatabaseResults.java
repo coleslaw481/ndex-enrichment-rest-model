@@ -15,6 +15,22 @@ public class DatabaseResults {
     
     private List<DatabaseResult> _results;
 
+    /**
+     * Default Constructor
+     */
+    public DatabaseResults(){
+        this(null);
+    }
+    
+    /**
+     * Creates new {@link #DatabaseResults()} performing shallow copy
+     * of data in {@code id}
+     * @param idr {@link org.ndexbio.enrichment.rest.model.InternalDatabaseResults} object to copy from
+     */
+    public DatabaseResults(InternalDatabaseResults idr){
+        _results = idr.getResults();
+    }
+    
     public List<DatabaseResult> getResults() {
         return _results;
     }
