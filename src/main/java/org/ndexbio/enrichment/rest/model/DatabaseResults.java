@@ -28,6 +28,9 @@ public class DatabaseResults {
      * @param idr {@link org.ndexbio.enrichment.rest.model.InternalDatabaseResults} object to copy from
      */
     public DatabaseResults(InternalDatabaseResults idr){
+        if (idr == null){
+            return;
+        }
         _results = idr.getResults();
     }
     
