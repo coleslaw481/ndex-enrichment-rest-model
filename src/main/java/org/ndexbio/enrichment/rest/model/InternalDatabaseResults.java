@@ -15,10 +15,19 @@ import java.util.Map;
 public class InternalDatabaseResults extends DatabaseResults {
     
     private Map<String, String> _databaseAccountOwnerMap;
+    private Map<String, InternalNdexConnectionParams> _databaseConnectionMap;
     private List<InternalGeneMap> _geneMapList;
     private Map<String, Integer> _databaseUniqueGeneCount;
     private int _universeUniqueGeneCount;
 
+    public Map<String, InternalNdexConnectionParams> getDatabaseConnectionMap() {
+        return _databaseConnectionMap;
+    }
+
+    public void setDatabaseConnectionMap(Map<String, InternalNdexConnectionParams> _databaseConnectionMap) {
+        this._databaseConnectionMap = _databaseConnectionMap;
+    }
+    
     /**
      * Gets map of account owner for networks on NDEx for given databases
      * The map is <database uuid> => <account name>
