@@ -14,7 +14,6 @@ import java.util.Map;
  */
 public class InternalDatabaseResults extends DatabaseResults {
     
-    private Map<String, String> _databaseAccountOwnerMap;
     private Map<String, InternalNdexConnectionParams> _databaseConnectionMap;
     private List<InternalGeneMap> _geneMapList;
     private Map<String, Integer> _databaseUniqueGeneCount;
@@ -26,24 +25,6 @@ public class InternalDatabaseResults extends DatabaseResults {
 
     public void setDatabaseConnectionMap(Map<String, InternalNdexConnectionParams> _databaseConnectionMap) {
         this._databaseConnectionMap = _databaseConnectionMap;
-    }
-    
-    /**
-     * Gets map of account owner for networks on NDEx for given databases
-     * The map is <database uuid> => <account name>
-     * @return
-     */
-    public Map<String, String> getDatabaseAccountOwnerMap() {
-        return _databaseAccountOwnerMap;
-    }
-
-    /**
-     * Gets map of account owner for networks on NDEx for given databases
-     * The map is <database uuid> => <account name>
-     * @return
-     */
-    public void setDatabaseAccountOwnerMap(Map<String, String> _databaseAccountOwnerMap) {
-        this._databaseAccountOwnerMap = _databaseAccountOwnerMap;
     }
 
     public List<InternalGeneMap> getGeneMapList() {

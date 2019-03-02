@@ -14,6 +14,7 @@ public class InternalNdexConnectionParams {
     private String _user;
     private String _password;
     private String _server;
+    private String _networkOwner;
 
     public String getUser() {
         return _user;
@@ -37,6 +38,14 @@ public class InternalNdexConnectionParams {
 
     public void setServer(String _server) {
         this._server = _server;
+    }
+
+    public String getNetworkOwner() {
+        return _networkOwner;
+    }
+
+    public void setNetworkOwner(String _networkOwner) {
+        this._networkOwner = _networkOwner;
     }
     
     
