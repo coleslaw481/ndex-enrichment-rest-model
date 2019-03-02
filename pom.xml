@@ -57,7 +57,7 @@
         </dependency>
     </dependencies>
     <scm>
-	  <connection>scm:git:https://github.com/coleslaw481/ndex-enrichment-rest-model.git</connection>
+	  <connection>scm:git:https://github.com/ndexbio/ndex-enrichment-rest-model.git</connection>
     </scm>
     <build>
         <pluginManagement>

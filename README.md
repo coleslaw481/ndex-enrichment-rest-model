@@ -27,12 +27,12 @@ Build requirements:
 
 * [Java 8+][java] JDK
 * [Make][make] **(to build)**
-* [Maven][maven] 3.0 or higher **(to build)**
+* [Maven][maven] 3.3 or higher **(to build)** -- tested with 3.6
 
 
 ```Bash
 # In lieu of git one can just download repo and unzip it
-git clone https://github.com/coleslaw481/ndex-enrichment-rest-model.git
+git clone https://github.com/ndexbio/ndex-enrichment-rest-model.git
 
 cd ndex-enrichment-rest-model
 mvn install
