@@ -24,18 +24,60 @@ public class ErrorResponse {
         _message = message;
         _description = ex.getMessage();
         StringBuilder stackTraceStr = new StringBuilder();
-        int counter = 0;
         for (StackTraceElement ste : ex.getStackTrace()){
-            stackTraceStr.append(ste.toString() + "\n");
-            if (counter > 2){
-                break;
-            }
-            counter++;
+            stackTraceStr.append(ste.getMethodName());
+            stackTraceStr.append("(");
+            stackTraceStr.append(ste.getFileName());
+            stackTraceStr.append(":");
+            stackTraceStr.append(Integer.toString(ste.getLineNumber()));
+            stackTraceStr.append(")\n");
         }
         _stackTrace = stackTraceStr.toString();
         _threadId = Long.toString(Thread.currentThread().getId());
+    }
+
+    private String getValueAsJsonString(final String value){
+        if (value == null){
+            return "null";
+        }
+        return "\"" + value + "\"";
+    }
+    /**
+     * Fallback implementation of json version of object
+     * {"message":"hi",
+     *  "stackTrace":"org.ndexbio.enri",
+     *  "threadId":"1",
+     *  "description":"well",
+     *  "errorCode":null,
+     *  "timeStamp":null}
+     * @return 
+     */
+    public String asJson(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\"message\": ");
+        sb.append(this.getValueAsJsonString(getMessage()));
+        sb.append(",\n");
         
+        sb.append("\"stackTrace\": ");
+        sb.append(this.getValueAsJsonString(getStackTrace()));
+        sb.append(",\n");
+
+        sb.append("\"threadId\": ");
+        sb.append(this.getValueAsJsonString(getThreadId()));
+        sb.append(",\n");
+
+        sb.append("\"description\": ");
+        sb.append(this.getValueAsJsonString(getDescription()));
+        sb.append(",\n");
+
+        sb.append("\"errorCode\": ");
+        sb.append(this.getValueAsJsonString(getErrorCode()));
+        sb.append(",\n");
         
+        sb.append("\"timeStamp\": ");
+        sb.append(this.getValueAsJsonString(getTimeStamp()));
+        sb.append("}");
+        return sb.toString();
     }
 
     @Schema(description="Error code to help identify issue")
