@@ -20,17 +20,21 @@ public class ErrorResponse {
     private String _threadId;
     private String _timeStamp;
     
+    public ErrorResponse(){
+        
+    }
+    
     public ErrorResponse(final String message, Exception ex){
         _message = message;
         _description = ex.getMessage();
         StringBuilder stackTraceStr = new StringBuilder();
+        int counter = 0;
         for (StackTraceElement ste : ex.getStackTrace()){
-            stackTraceStr.append(ste.getMethodName());
-            stackTraceStr.append("(");
-            stackTraceStr.append(ste.getFileName());
-            stackTraceStr.append(":");
-            stackTraceStr.append(Integer.toString(ste.getLineNumber()));
-            stackTraceStr.append(")\n");
+            stackTraceStr.append(ste.toString());
+            if (counter >= 2){
+                break;
+            }
+            counter++;
         }
         _stackTrace = stackTraceStr.toString();
         _threadId = Long.toString(Thread.currentThread().getId());
