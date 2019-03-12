@@ -6,6 +6,10 @@
 package org.ndexbio.enrichment.rest.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 /**
  * Encapsulates an error encountered by the server
@@ -21,10 +25,13 @@ public class ErrorResponse {
     private String _timeStamp;
     
     public ErrorResponse(){
-        
+        LocalDateTime ldt = LocalDateTime.now(ZoneId.of("UTC"));
+        _timeStamp = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm.s",
+                                                 Locale.ENGLISH).format(ldt);
     }
     
     public ErrorResponse(final String message, Exception ex){
+        this();
         _message = message;
         _description = ex.getMessage();
         StringBuilder stackTraceStr = new StringBuilder();
@@ -129,7 +136,7 @@ public class ErrorResponse {
         this._threadId = _threadId;
     }
 
-    @Schema(description="UTC Time stamp in YYYY-MM-DDHH:MM.S")
+    @Schema(description="UTC Time stamp in YYYY-MM-DD_HH:MM.S")
     public String getTimeStamp() {
         return _timeStamp;
     }

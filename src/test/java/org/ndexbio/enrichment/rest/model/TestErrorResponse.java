@@ -17,10 +17,11 @@ public class TestErrorResponse {
     @Test
     public void testConstructor(){
         ErrorResponse er = new ErrorResponse("hi", new EnrichmentException("yo"));
+
         assertEquals("hi", er.getMessage());
         assertEquals("yo", er.getDescription());
         assertEquals(Long.toString(Thread.currentThread().getId()), er.getThreadId());
-        assertNull(er.getTimeStamp());
+        assertNotNull(er.getTimeStamp());
         assertTrue(er.getStackTrace().contains("testConstructor"));
     }
     
