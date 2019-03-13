@@ -7,6 +7,7 @@ package org.ndexbio.enrichment.rest.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -17,6 +18,8 @@ public class InternalDatabaseResults extends DatabaseResults {
     private Map<String, InternalNdexConnectionParams> _databaseConnectionMap;
     private List<InternalGeneMap> _geneMapList;
     private Map<String, Integer> _databaseUniqueGeneCount;
+    private Set<String> _networksToExclude;
+    
     private int _universeUniqueGeneCount;
 
     public Map<String, InternalNdexConnectionParams> getDatabaseConnectionMap() {
@@ -51,7 +54,15 @@ public class InternalDatabaseResults extends DatabaseResults {
         this._universeUniqueGeneCount = _universeUniqueGeneCount;
     }
 
-    
-    
-    
+    /**
+     * Gets set of network UUIDs that should be excluded from database
+     * @return 
+     */
+    public Set<String> getNetworksToExclude() {
+        return _networksToExclude;
+    }
+
+    public void setNetworksToExclude(Set<String> _networksToExclude) {
+        this._networksToExclude = _networksToExclude;
+    }
 }
