@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.ndexbio.enrichment.rest.model;
 
 /**
@@ -14,7 +9,7 @@ public class InternalNdexConnectionParams {
     private String _user;
     private String _password;
     private String _server;
-    private String _networkOwner;
+    private String _networkSetId;
 
     public String getUser() {
         return _user;
@@ -40,13 +35,11 @@ public class InternalNdexConnectionParams {
         this._server = _server;
     }
 
-    public String getNetworkOwner() {
-        return _networkOwner;
+    public String getNetworkSetId() {
+        return _networkSetId;
     }
 
-    public void setNetworkOwner(String _networkOwner) {
-        this._networkOwner = _networkOwner;
+    public void setNetworkSetId(String _networkSetId) {
+        this._networkSetId = _networkSetId;
     }
-    
-    
 }
