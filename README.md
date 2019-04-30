@@ -9,6 +9,8 @@
 NDEx Enrichment Object Model
 ============================
 
+[![Build Status](https://travis-ci.org/ndexbio/ndex-enrichment-rest-model.svg?branch=master)](https://travis-ci.org/ndexbio/ndex-enrichment-rest-model)
+[![Coverage Status](https://coveralls.io/repos/github/ndexbio/ndex-enrichment-rest-model/badge.svg?branch=master)](https://coveralls.io/github/ndexbio/ndex-enrichment-rest-model?branch=master)
 Contains Java Pojo objects needed by NDEx Enrichment services
 
 
