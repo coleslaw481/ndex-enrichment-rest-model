@@ -35,9 +35,11 @@ public class EnrichmentQueryResults extends EnrichmentQueryStatus {
      */
     public EnrichmentQueryResults(EnrichmentQueryResults eqr, List<EnrichmentQueryResult> results){
         super(eqr);
-        this._numberOfHits = eqr.getNumberOfHits();
-        this._start = eqr.getStart();
-        this._size = eqr.getSize();
+        if (eqr != null){
+            this._numberOfHits = eqr.getNumberOfHits();
+            this._start = eqr.getStart();
+            this._size = eqr.getSize();
+        }
         _results = results;
     }
     
