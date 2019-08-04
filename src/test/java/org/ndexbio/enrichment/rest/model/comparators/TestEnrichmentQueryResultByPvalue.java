@@ -17,23 +17,6 @@ public class TestEnrichmentQueryResultByPvalue {
         assertEquals(-1, sorter.compare(new EnrichmentQueryResult(), null));
         assertEquals(1, sorter.compare(null, new EnrichmentQueryResult()));
     }
-
-    @Test
-    public void testClassCastException(){
-        EnrichmentQueryResultByPvalue sorter = new EnrichmentQueryResultByPvalue();
-        try {
-            sorter.compare(new Integer(4), new EnrichmentQueryResult());
-            fail("Expected ClassCastException");
-        } catch(ClassCastException cce){
-            assertEquals("o1 is not of type EnrichmentQueryResult", cce.getMessage());
-        }
-        try {
-            sorter.compare(new EnrichmentQueryResult(), new Integer(5));
-            fail("Expected ClassCastException");
-        } catch(ClassCastException cce){
-            assertEquals("o2 is not of type EnrichmentQueryResult", cce.getMessage());
-        }
-    }
     
     @Test
     public void testVariousPvalues(){

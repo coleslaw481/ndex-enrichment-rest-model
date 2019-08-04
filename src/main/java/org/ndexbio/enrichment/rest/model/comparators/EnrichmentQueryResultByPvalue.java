@@ -13,7 +13,7 @@ import org.ndexbio.enrichment.rest.model.EnrichmentQueryResult;
  * by PValue
  * @author churas
  */
-public class EnrichmentQueryResultByPvalue implements Comparator {
+public class EnrichmentQueryResultByPvalue implements Comparator<EnrichmentQueryResult> {
 
     /**
      * Compares two {@link org.ndexbio.enrichment.rest.model.EnrichmentQueryResult} objects
@@ -26,7 +26,7 @@ public class EnrichmentQueryResultByPvalue implements Comparator {
      * @throws ClassCastException if either input parameter cannot be cast to {@link org.ndexbio.enrichment.rest.model.EnrichmentQueryResult}       
      */
     @Override
-    public int compare(Object o1, Object o2) {
+    public int compare(EnrichmentQueryResult o1, EnrichmentQueryResult o2) {
         if (o1 == null && o2 == null){
             return 0;
         }
@@ -36,18 +36,10 @@ public class EnrichmentQueryResultByPvalue implements Comparator {
         if (o1 == null && o2 != null){
             return 1;
         }
-        if (o1 instanceof EnrichmentQueryResult == false){
-            throw new ClassCastException ("o1 is not of type EnrichmentQueryResult");
-        }
-        if (o2 instanceof EnrichmentQueryResult == false){
-            throw new ClassCastException ("o2 is not of type EnrichmentQueryResult");
-        }
-        EnrichmentQueryResult eqr1 = (EnrichmentQueryResult)o1;
-        EnrichmentQueryResult eqr2 = (EnrichmentQueryResult)o2;
-        if (eqr1.getpValue() < eqr2.getpValue()){
+        if (o1.getpValue() < o2.getpValue()){
             return -1;
         }
-        if (eqr1.getpValue() == eqr2.getpValue()){
+        if (o1.getpValue() == o2.getpValue()){
             return 0;
         }
         return 1;
