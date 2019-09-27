@@ -20,6 +20,7 @@ public class InternalDatabaseResults extends DatabaseResults {
     private Map<String, Integer> _databaseUniqueGeneCount;
     private Set<String> _networksToExclude;
     private Map<String, Map<String, Set<Long>>> _networkToGeneToNodeMap;
+    private Map<String, Double> _idfMap;
     
     private int _universeUniqueGeneCount;
 
@@ -73,5 +74,13 @@ public class InternalDatabaseResults extends DatabaseResults {
 
     public void setNetworkToGeneToNodeMap(Map<String, Map<String, Set<Long>>> _networkToGeneToNodeMap) {
         this._networkToGeneToNodeMap = _networkToGeneToNodeMap;
+    }
+    
+    public void setIdfMap(Map<String, Double> _idfMap) {
+    	this._idfMap = _idfMap;
+    }
+    
+    public Map<String, Double> getIdfMap() {
+    	return this._idfMap;
     }
 }

@@ -1,6 +1,8 @@
 package org.ndexbio.enrichment.rest.model;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 /**
@@ -14,16 +16,16 @@ public class TestEnrichmentQuery {
         EnrichmentQuery eq = new EnrichmentQuery();
         assertEquals(null, eq.getDatabaseList());
         assertEquals(null, eq.getGeneList());
-        ArrayList<String> dblist = new ArrayList<>();
+        TreeSet<String> dblist = new TreeSet<>();
         dblist.add("db");
         eq.setDatabaseList(dblist);
         
-        ArrayList<String> genelist = new ArrayList<>();
+        TreeSet<String> genelist = new TreeSet<>();
         genelist.add("gene");
         eq.setGeneList(genelist);
         
-        assertEquals("db", eq.getDatabaseList().get(0));
-        assertEquals("gene", eq.getGeneList().get(0));
+        assertEquals("db", eq.getDatabaseList().first());
+        assertEquals("GENE", eq.getGeneList().first());
 
     }
 }
