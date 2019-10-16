@@ -15,7 +15,7 @@ public class DatabaseResult {
     private String _uuid;
     private String _description;
     private String _name;
-    //private String _numberOfNetworks;
+    private String _numberOfNetworks;
     private String _imageURL;
     private List<Network> _networks;
     private String _url;
@@ -66,5 +66,13 @@ public class DatabaseResult {
     
     public void setUrl(String _url) {
     	this._url = _url;
+    }
+    
+    public String getNumberOfNetworks() {
+    	return _numberOfNetworks;
+    }
+    
+    public void setNumberOfNetworks(String _numberOfNetworks) {
+    	this._numberOfNetworks = _numberOfNetworks;
     }
 }
