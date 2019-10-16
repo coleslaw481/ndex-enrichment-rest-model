@@ -18,6 +18,7 @@ public class DatabaseResult {
     //private String _numberOfNetworks;
     private String _imageURL;
     private List<Network> _networks;
+    private String _url;
     
     public String getUuid() {
         return _uuid;
@@ -57,5 +58,13 @@ public class DatabaseResult {
 
     public void setImageURL(String _imageURL) {
         this._imageURL = _imageURL;
+    }
+    
+    public String getUrl() {
+    	return _url;
+    }
+    
+    public void setUrl(String _url) {
+    	this._url = _url;
     }
 }
