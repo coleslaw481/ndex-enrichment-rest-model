@@ -5,6 +5,8 @@
  */
 package org.ndexbio.enrichment.rest.model;
 
+import java.util.List;
+
 /**
  *
  * @author churas
@@ -13,9 +15,10 @@ public class DatabaseResult {
     private String _uuid;
     private String _description;
     private String _name;
-    private String _numberOfNetworks;
+    //private String _numberOfNetworks;
     private String _imageURL;
-
+    private List<Network> _networks;
+    
     public String getUuid() {
         return _uuid;
     }
@@ -40,12 +43,12 @@ public class DatabaseResult {
         this._name = _name;
     }
 
-    public String getNumberOfNetworks() {
-        return _numberOfNetworks;
+    public List<Network> getNetworks() {
+        return _networks;
     }
 
-    public void setNumberOfNetworks(String _numberOfNetworks) {
-        this._numberOfNetworks = _numberOfNetworks;
+    public void setNetworks(List<Network> _networks) {
+        this._networks = _networks;
     }
 
     public String getImageURL() {
