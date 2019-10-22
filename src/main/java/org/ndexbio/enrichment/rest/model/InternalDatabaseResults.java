@@ -23,6 +23,7 @@ public class InternalDatabaseResults extends DatabaseResults {
     private Map<String, Double> _idfMap;
     
     private int _universeUniqueGeneCount;
+    private int _totalNetworkCount;
 
     public Map<String, InternalNdexConnectionParams> getDatabaseConnectionMap() {
         return _databaseConnectionMap;
@@ -54,6 +55,14 @@ public class InternalDatabaseResults extends DatabaseResults {
 
     public void setUniverseUniqueGeneCount(int _universeUniqueGeneCount) {
         this._universeUniqueGeneCount = _universeUniqueGeneCount;
+    }
+    
+    public int getTotalNetworkCount() {
+    	return _totalNetworkCount;
+    }
+    
+    public void setTotalNetworkCount(int _totalNetworkCount) {
+    	this._totalNetworkCount = _totalNetworkCount;
     }
 
     /**
