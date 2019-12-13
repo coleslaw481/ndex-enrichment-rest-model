@@ -20,8 +20,10 @@ public class InternalDatabaseResults extends DatabaseResults {
     private Map<String, Integer> _databaseUniqueGeneCount;
     private Set<String> _networksToExclude;
     private Map<String, Map<String, Set<Long>>> _networkToGeneToNodeMap;
+    private Map<String, Double> _idfMap;
     
     private int _universeUniqueGeneCount;
+    private int _totalNetworkCount;
 
     public Map<String, InternalNdexConnectionParams> getDatabaseConnectionMap() {
         return _databaseConnectionMap;
@@ -54,6 +56,14 @@ public class InternalDatabaseResults extends DatabaseResults {
     public void setUniverseUniqueGeneCount(int _universeUniqueGeneCount) {
         this._universeUniqueGeneCount = _universeUniqueGeneCount;
     }
+    
+    public int getTotalNetworkCount() {
+    	return _totalNetworkCount;
+    }
+    
+    public void setTotalNetworkCount(int _totalNetworkCount) {
+    	this._totalNetworkCount = _totalNetworkCount;
+    }
 
     /**
      * Gets set of network UUIDs that should be excluded from database
@@ -73,5 +83,13 @@ public class InternalDatabaseResults extends DatabaseResults {
 
     public void setNetworkToGeneToNodeMap(Map<String, Map<String, Set<Long>>> _networkToGeneToNodeMap) {
         this._networkToGeneToNodeMap = _networkToGeneToNodeMap;
+    }
+    
+    public void setIdfMap(Map<String, Double> _idfMap) {
+    	this._idfMap = _idfMap;
+    }
+    
+    public Map<String, Double> getIdfMap() {
+    	return this._idfMap;
     }
 }

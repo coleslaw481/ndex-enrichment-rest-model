@@ -16,13 +16,16 @@ public class EnrichmentQueryResult {
     private String _databaseUUID;
     private String _databaseName;
     private String _description;
+    private String _url;
     private String _imageURL;
     private int _percentOverlap;
     private int _nodes;
     private int _edges;
     private double _pValue;
+    private double _similarity;
     private int _rank;
     private Set<String> _hitGenes;
+    private int _totalNetworkCount;
 
 
     public String getNetworkUUID() {
@@ -55,6 +58,14 @@ public class EnrichmentQueryResult {
 
     public void setDescription(String _description) {
         this._description = _description;
+    }
+    
+    public void setUrl(String _url) {
+    	this._url = _url;
+    }
+    
+    public String getUrl() {
+    	return _url;
     }
 
     public String getImageURL() {
@@ -112,4 +123,20 @@ public class EnrichmentQueryResult {
     public void setHitGenes(Set<String> _hitGenes) {
         this._hitGenes = _hitGenes;
     }
+
+	public void setSimilarity(double _similarity) {
+		this._similarity = _similarity;
+	}
+	
+	public double getSimilarity() {
+		return _similarity;
+	}
+	
+	public void setTotalNetworkCount(int _totalNetworkCount) {
+		this._totalNetworkCount = _totalNetworkCount;
+	}
+	
+	public int getTotalNetworkCount() {
+		return _totalNetworkCount;
+	}
 }
