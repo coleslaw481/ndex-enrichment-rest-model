@@ -7,6 +7,8 @@ package org.ndexbio.enrichment.rest.model;
 
 import java.util.List;
 
+import org.ndexbio.ndexsearch.rest.model.DatabaseResult;
+
 /**
  * Represents results of databases
  * @author churas
