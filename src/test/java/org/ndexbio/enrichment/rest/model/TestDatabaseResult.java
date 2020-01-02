@@ -1,6 +1,9 @@
 package org.ndexbio.enrichment.rest.model;
 
 import org.junit.jupiter.api.Test;
+import org.ndexbio.ndexsearch.rest.model.DatabaseResult;
+import org.ndexbio.ndexsearch.rest.model.NetworkInfo;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -21,9 +24,9 @@ public class TestDatabaseResult {
         assertEquals(null, dr.getImageURL());
         dr.setDescription("description");
         dr.setName("name");
-        Network nw = new Network();
+        NetworkInfo nw = new NetworkInfo();
         nw.setName("network");
-        List<Network> networkList = new ArrayList<>();
+        List<NetworkInfo> networkList = new ArrayList<>();
         networkList.add(nw);
         dr.setNetworks(networkList);
         dr.setUuid("2");

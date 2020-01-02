@@ -8,6 +8,8 @@ package org.ndexbio.enrichment.rest.model;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.ndexbio.ndexsearch.rest.model.DatabaseResult;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
