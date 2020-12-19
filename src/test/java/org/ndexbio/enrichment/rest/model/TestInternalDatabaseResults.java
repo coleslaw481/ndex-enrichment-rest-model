@@ -24,6 +24,10 @@ public class TestInternalDatabaseResults {
         assertEquals(null, idr.getNetworksToExclude());
         assertEquals(null, idr.getResults());
         assertEquals(0, idr.getUniverseUniqueGeneCount());
+		assertNull(idr.getIdfMap());
+		assertNull(idr.getNetworkGeneList());
+		assertNull(idr.getNetworkToGeneToNodeMap());
+		assertEquals(0, idr.getTotalNetworkCount());
         
         Map<String, InternalNdexConnectionParams> conMap = new HashMap<String, InternalNdexConnectionParams>();
         conMap.put("hi", new InternalNdexConnectionParams());
@@ -40,13 +44,24 @@ public class TestInternalDatabaseResults {
         idr.setNetworksToExclude(exclude);
         
         idr.setUniverseUniqueGeneCount(5);
-        
+		idr.setTotalNetworkCount(6);
+		
+		Map<String, Map<String, Set<Long>>> netToGeneMap = new HashMap<>();
+		idr.setNetworkToGeneToNodeMap(netToGeneMap);
+		Map<String, Double> idfMap = new HashMap<>();
+        idr.setIdfMap(idfMap);
+		Map<String, Set<String>> networkGeneList = new HashMap<>();
+		idr.setNetworkGeneList(networkGeneList);
         assertTrue(idr.getDatabaseConnectionMap().containsKey("hi"));
         assertTrue(idr.getDatabaseUniqueGeneCount().containsKey("key"));
         assertEquals(0, idr.getGeneMapList().size());
         assertTrue(idr.getNetworksToExclude().contains("exclude"));
-        idr.setResults(new ArrayList<DatabaseResult>());
+        idr.setResults(new ArrayList<>());
         assertEquals(0, idr.getResults().size());
         assertEquals(5, idr.getUniverseUniqueGeneCount());
+		assertEquals(6, idr.getTotalNetworkCount());
+		assertEquals(netToGeneMap, idr.getNetworkToGeneToNodeMap());
+		assertEquals(idfMap, idr.getIdfMap());
+		assertEquals(networkGeneList, idr.getNetworkGeneList());
     }
 }

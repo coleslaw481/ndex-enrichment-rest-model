@@ -1,5 +1,6 @@
 package org.ndexbio.enrichment.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -8,6 +9,7 @@ import java.util.Set;
  *
  * @author churas
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InternalDatabaseResults extends DatabaseResults {
     
     private Map<String, InternalNdexConnectionParams> _databaseConnectionMap;
@@ -16,6 +18,7 @@ public class InternalDatabaseResults extends DatabaseResults {
     private Set<String> _networksToExclude;
     private Map<String, Map<String, Set<Long>>> _networkToGeneToNodeMap;
     private Map<String, Double> _idfMap;
+	private Map<String, Set<String>> _networkGeneList;
     
     private int _universeUniqueGeneCount;
     private int _totalNetworkCount;
@@ -87,4 +90,12 @@ public class InternalDatabaseResults extends DatabaseResults {
     public Map<String, Double> getIdfMap() {
     	return this._idfMap;
     }
+
+	public Map<String, Set<String>> getNetworkGeneList() {
+		return _networkGeneList;
+	}
+
+	public void setNetworkGeneList(Map<String, Set<String>> _networkGeneList) {
+		this._networkGeneList = _networkGeneList;
+	}
 }
