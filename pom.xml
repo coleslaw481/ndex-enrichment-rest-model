@@ -22,6 +22,7 @@
         <hamcrest.version>2.1</hamcrest.version>
         <guava.version>27.0.1-jre</guava.version>
         <swagger.version>2.0.0</swagger.version>
+		<ndex-object-model.version>2.5.1-SNAPSHOT</ndex-object-model.version>
     </properties>
     
     <repositories>
@@ -64,7 +65,7 @@
         <dependency>
             <groupId>org.ndexbio</groupId>
             <artifactId>ndex-object-model</artifactId>
-            <version>2.4.4</version>
+            <version>${ndex-object-model.version}</version>
         </dependency>
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
