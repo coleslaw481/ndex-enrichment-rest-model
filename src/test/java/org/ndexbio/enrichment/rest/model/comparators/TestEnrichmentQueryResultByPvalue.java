@@ -25,7 +25,7 @@ public class TestEnrichmentQueryResultByPvalue {
         o1.setpValue(0);
         
         EnrichmentQueryResult o2 = new EnrichmentQueryResult();
-        o1.setpValue(0);
+        o2.setpValue(0);
         
         // equals
         assertEquals(0, sorter.compare(o1, o2));
