@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.ndexbio.enrichment.rest.model;
 
 import java.math.BigInteger;
@@ -21,54 +16,72 @@ public class EnrichmentQuery {
     private SortedSet<String> _geneList;
     private SortedSet<String> _databaseList;
 
+	/**
+	 * Gets the gene list passed in from setGeneList()
+	 * @return 
+	 */
     public SortedSet<String> getGeneList() {
         return _geneList;
     }
 
-    public void setGeneList(SortedSet<String> _geneList) {
-    	if (_geneList != null && !_geneList.isEmpty()) {
-	    	SortedSet<String> uppercased = new TreeSet<>();
-	    	for (String gene : _geneList) {
-	    		String newGene = gene.toUpperCase().trim();
-	    		if (newGene.length() > 0) {
-	    			uppercased.add(newGene);
-	    		}
-	    	}
-	        this._geneList = uppercased;
-    	}
+	/**
+	 * Sets a new gene list adding genes that are non
+	 * empty strings converting them to upper case
+	 * @param _geneList 
+	 */
+	public void setGeneList(SortedSet<String> _geneList) {
+		if (_geneList != null && !_geneList.isEmpty()) {
+			SortedSet<String> uppercased = new TreeSet<>();
+			for (String gene : _geneList) {
+				String newGene = gene.toUpperCase().trim();
+				if (newGene.length() > 0) {
+					uppercased.add(newGene);
+				}
+			}
+			this._geneList = uppercased;
+		}
     }
 
+	/**
+	 * Gets database list passed in via setDatabaseList()
+	 * @return 
+	 */
     public SortedSet<String> getDatabaseList() {
         return _databaseList;
     }
 
-    public void setDatabaseList(SortedSet<String> _databaseList) {  
-    	if (_databaseList != null &&!_databaseList.isEmpty()) {
-    		SortedSet<String> lowercased = new TreeSet<>();
-    		for (String database : _databaseList) {
-    			String newDatabase = database.toLowerCase().trim();
-    			if (newDatabase.length() > 0) {
-    				lowercased.add(newDatabase);
-    			}
+	/**
+	 * Adds database list passed in removing any 0 length entries.
+	 * Also all entries are lower cased
+	 * @param _databaseList 
+	 */
+	public void setDatabaseList(SortedSet<String> _databaseList) {  
+		if (_databaseList != null &&!_databaseList.isEmpty()) {
+			SortedSet<String> lowercased = new TreeSet<>();
+			for (String database : _databaseList) {
+				String newDatabase = database.toLowerCase().trim();
+				if (newDatabase.length() > 0) {
+					lowercased.add(newDatabase);
+				}
     		}
         	this._databaseList = lowercased;
-    	}
+		}
     }
     
+	/**
+	 * Generates a hashcode by creating a String containing
+	 * a comma delimited list of databases followed by : then
+	 * a comma delimited list of genes. The String is then
+	 * run through a MD5 MessageDigest with the resulting byte
+	 * array converted to a BigInteger and then returned 
+	 * as an int.
+	 * @return 
+	 */
     @Override
     public int hashCode() {
-    	String thisString = this
-    			.getDatabaseList()
-    			.stream()
-    			.collect(Collectors.joining(",")) 
-    			+ ":" 
-    			+ this
-    			.getGeneList()
-    			.stream()
-    			.collect(Collectors.joining(","));
         try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
-	        byte[] messageDigest = md.digest(thisString.getBytes());
+	        byte[] messageDigest = md.digest(getDigestString().getBytes());
 	        BigInteger no = new BigInteger(1, messageDigest);
 	        return no.intValue();
 		} catch (NoSuchAlgorithmException e) {
@@ -78,34 +91,46 @@ public class EnrichmentQuery {
 		} 
 
     }
+	
+	private String getDigestString(){
+		StringBuilder sb = new StringBuilder();
+		if (this.getDatabaseList() != null){
+			sb.append(this
+    			.getDatabaseList()
+    			.stream()
+    			.collect(Collectors.joining(",")));
+		}
+		sb.append(":");
+		if (this.getGeneList() != null){
+    			sb.append(this
+    			.getGeneList()
+    			.stream()
+    			.collect(Collectors.joining(",")));
+		}
+		return sb.toString();
+	}
     
+	/**
+	 * Compares two EnrichmentQuery objects
+	 * by first building a String representation 
+	 * of each with following format:
+	 * <comma delimited database list>:<comma delimited gene list>
+	 * 
+	 * The string above is then compared with equalsIgnoreCase()
+	 * and its value is returned
+	 * @param o
+	 * @return false if String above do not match or if object passed in
+	 *         is not of type EnrichmentQuery
+	 */
     @Override
-    public boolean equals(Object o) {
-    	//Check type
-    	if (!(o instanceof EnrichmentQuery)) {
-    		return false;
-    	}
-    	EnrichmentQuery eq = (EnrichmentQuery) o;
+	public boolean equals(Object o) {
+	//Check type
+		if (!(o instanceof EnrichmentQuery)) {
+			return false;
+		}
+		EnrichmentQuery eq = (EnrichmentQuery) o;
     	
-    	//Compare contents
-    	String thisString = this
-    			.getDatabaseList()
-    			.stream()
-    			.collect(Collectors.joining(",")) 
-    			+ ":" 
-    			+ this
-    			.getGeneList()
-    			.stream()
-    			.collect(Collectors.joining(","));
-    	String oString = eq
-    			.getDatabaseList()
-    			.stream()
-    			.collect(Collectors.joining(",")) 
-    			+ ":" 
-    			+ eq
-    			.getGeneList()
-    			.stream()
-    			.collect(Collectors.joining(","));
-    	return thisString.equalsIgnoreCase(oString);
+		//Compare contents
+		return this.getDigestString().equalsIgnoreCase(eq.getDigestString());
     }
 }
