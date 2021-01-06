@@ -22,7 +22,7 @@
         <hamcrest.version>2.1</hamcrest.version>
         <guava.version>27.0.1-jre</guava.version>
         <swagger.version>2.0.0</swagger.version>
-		<ndex-object-model.version>2.5.1-SNAPSHOT</ndex-object-model.version>
+	<ndex-object-model.version>2.5.1-20201217.180835-1</ndex-object-model.version>
     </properties>
     
     <repositories>
