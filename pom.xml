@@ -7,7 +7,7 @@
     <version>0.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>NDEx Enrichment Object Model</name>
+    <name>NDEx Pathway Relevance Object Model</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
