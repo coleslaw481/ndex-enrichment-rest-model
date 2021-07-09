@@ -19,7 +19,7 @@ Contains Java Pojo objects needed by NDEx Enrichment services
 Requirements
 ============
 
-* [Java][java] 8+ **(jdk to build)**
+* [Java][java] 11+ **(jdk to build)**
 
 
 
@@ -28,14 +28,14 @@ Building
 
 Build requirements:
 
-* [Java 8+][java] JDK
+* [Java 11+][java] JDK
 * [Make][make] **(to build)**
 * [Maven][maven] 3.3 or higher **(to build)** -- tested with 3.6
 
 
 ```Bash
 # In lieu of git one can just download repo and unzip it
-git clone https://github.com/ndexbio/ndex-enrichment-rest-model.git
+git clone https://github.com/cytoscape/ndex-enrichment-rest-model.git
 
 cd ndex-enrichment-rest-model
 mvn install
