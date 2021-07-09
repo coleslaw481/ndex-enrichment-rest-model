@@ -4,7 +4,7 @@
 
     <groupId>org.ndexbio.enrichment.rest.model</groupId>
     <artifactId>ndex-enrichment-rest-model</artifactId>
-    <version>0.3.0</version>
+    <version>0.3.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>NDEx Pathway Relevance Object Model</name>
@@ -15,14 +15,14 @@
         <resteasy.version>3.6.3.Final</resteasy.version>
         <junit.version>5.3.1</junit.version>
         <easymock.version>3.0</easymock.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.12.2</jackson.version>
         <logback.version>1.2.3</logback.version>
         <commons-math3.version>3.6.1</commons-math3.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <hamcrest.version>2.1</hamcrest.version>
         <guava.version>27.0.1-jre</guava.version>
         <swagger.version>2.0.0</swagger.version>
-	<ndex-object-model.version>2.5.1-20201217.180835-1</ndex-object-model.version>
+	<ndex-object-model.version>2.5.1</ndex-object-model.version>
     </properties>
     
     <repositories>
