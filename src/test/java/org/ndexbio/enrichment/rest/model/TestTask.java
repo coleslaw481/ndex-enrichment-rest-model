@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.ndexbio.enrichment.rest.model;
 
 
@@ -19,8 +14,11 @@ public class TestTask {
     public void testGettersAndSetters(){
         Task t = new Task();
         assertEquals(null, t.getId());
+        assertEquals(null, t.getWebUrl());
         t.setId("hi");
-        assertEquals("hi", t.getId());        
+        t.setWebUrl("https://foo.com");
+        assertEquals("hi", t.getId());
+        assertEquals("https://foo.com", t.getWebUrl());
     }
     
 }

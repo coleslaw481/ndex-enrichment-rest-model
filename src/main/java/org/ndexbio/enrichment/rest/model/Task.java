@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.ndexbio.enrichment.rest.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  *
  * @author churas
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Task {
     
     private String _id;
-
+    private String _webUrl;
+    
     public String getId() {
         return _id;
     }
@@ -20,5 +19,12 @@ public class Task {
     public void setId(String _id) {
         this._id = _id;
     }
-    
+
+    public String getWebUrl() {
+        return _webUrl;
+    }
+
+    public void setWebUrl(String _webUrl) {
+        this._webUrl = _webUrl;
+    }
 }
