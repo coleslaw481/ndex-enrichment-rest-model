@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Task {
     
     private String _id;
-    private String _webUrl;
+    private String _webURL;
     
     public String getId() {
         return _id;
@@ -20,11 +20,11 @@ public class Task {
         this._id = _id;
     }
 
-    public String getWebUrl() {
-        return _webUrl;
+    public String getWebURL() {
+        return _webURL;
     }
 
-    public void setWebUrl(String _webUrl) {
-        this._webUrl = _webUrl;
+    public void setWebURL(String _webURL) {
+        this._webURL = _webURL;
     }
 }

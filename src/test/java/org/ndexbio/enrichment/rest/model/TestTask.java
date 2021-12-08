@@ -14,11 +14,11 @@ public class TestTask {
     public void testGettersAndSetters(){
         Task t = new Task();
         assertEquals(null, t.getId());
-        assertEquals(null, t.getWebUrl());
+        assertEquals(null, t.getWebURL());
         t.setId("hi");
-        t.setWebUrl("https://foo.com");
+        t.setWebURL("https://foo.com");
         assertEquals("hi", t.getId());
-        assertEquals("https://foo.com", t.getWebUrl());
+        assertEquals("https://foo.com", t.getWebURL());
     }
     
 }
