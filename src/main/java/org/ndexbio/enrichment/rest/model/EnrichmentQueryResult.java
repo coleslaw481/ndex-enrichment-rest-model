@@ -1,11 +1,13 @@
 package org.ndexbio.enrichment.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.Set;
 
 /**
  *
  * @author churas
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EnrichmentQueryResult {
     private String _networkUUID;
     private String _databaseUUID;
@@ -21,6 +23,7 @@ public class EnrichmentQueryResult {
     private int _rank;
     private Set<String> _hitGenes;
     private int _totalNetworkCount;
+    private int _totalGeneCount;
 
 
     public String getNetworkUUID() {
@@ -119,19 +122,29 @@ public class EnrichmentQueryResult {
         this._hitGenes = _hitGenes;
     }
 
-	public void setSimilarity(double _similarity) {
-		this._similarity = _similarity;
-	}
-	
-	public double getSimilarity() {
-		return _similarity;
-	}
-	
-	public void setTotalNetworkCount(int _totalNetworkCount) {
-		this._totalNetworkCount = _totalNetworkCount;
-	}
-	
-	public int getTotalNetworkCount() {
-		return _totalNetworkCount;
-	}
+    public void setSimilarity(double _similarity) {
+            this._similarity = _similarity;
+    }
+
+    public double getSimilarity() {
+            return _similarity;
+    }
+
+    public void setTotalNetworkCount(int _totalNetworkCount) {
+            this._totalNetworkCount = _totalNetworkCount;
+    }
+
+    public int getTotalNetworkCount() {
+            return _totalNetworkCount;
+    }
+
+    public int getTotalGeneCount() {
+        return _totalGeneCount;
+    }
+
+    public void setTotalGeneCount(int _totalGeneCount) {
+        this._totalGeneCount = _totalGeneCount;
+    }
+        
+        
 }
