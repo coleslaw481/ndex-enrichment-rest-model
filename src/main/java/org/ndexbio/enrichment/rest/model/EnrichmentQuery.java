@@ -1,8 +1,11 @@
 package org.ndexbio.enrichment.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -11,10 +14,13 @@ import java.util.stream.Collectors;
  * Represents an Enrichment Query
  * @author churas
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EnrichmentQuery {
     
     private SortedSet<String> _geneList;
     private SortedSet<String> _databaseList;
+    private Map<String, String> _geneAnnotationServices;
+
 
 	/**
 	 * Gets the gene list passed in from setGeneList()
@@ -67,6 +73,16 @@ public class EnrichmentQuery {
         	this._databaseList = lowercased;
 		}
     }
+    
+        @Schema(description="Map of gene Annotation services")
+	public Map<String, String> getGeneAnnotationServices(){
+		return this._geneAnnotationServices;
+	}
+	
+	public void setGeneAnnotationServices(Map<String, String> _geneAnnotationServices){
+		this._geneAnnotationServices = _geneAnnotationServices;
+	}
+
     
 	/**
 	 * Generates a hashcode by creating a String containing
