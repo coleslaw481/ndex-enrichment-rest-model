@@ -79,5 +79,4 @@ public class EnrichmentQueryResults extends EnrichmentQueryStatus {
     public void setResults(List<EnrichmentQueryResult> _results) {
         this._results = _results;
     }
-    
 }
