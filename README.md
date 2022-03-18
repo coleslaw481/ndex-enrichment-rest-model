@@ -8,7 +8,7 @@
 
 
 
-NDEx Enrichment Object Model Repo (MOVED)
+NDEx Enrichment Object Model Repo ([MOVED](https://github.com/cytoscape/ndex-enrichment-rest))
 ============================================================
 
 **As of release 0.8.0, classes in this repo have been moved into 
