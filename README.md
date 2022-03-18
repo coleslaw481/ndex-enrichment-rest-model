@@ -8,7 +8,7 @@
 
 
 
-NOTE NDEx Enrichment Object Model Repo has been deprecated
+NDEx Enrichment Object Model Repo (MOVED)
 ============================================================
 
 **As of release 0.8.0, classes in this repo have been moved into 
