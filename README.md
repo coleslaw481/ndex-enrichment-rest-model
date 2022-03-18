@@ -6,13 +6,16 @@
 
 [make]: https://www.gnu.org/software/make
 
-NDEx Enrichment Object Model
-============================
 
-[![Build Status](https://travis-ci.org/ndexbio/ndex-enrichment-rest-model.svg?branch=master)](https://travis-ci.org/ndexbio/ndex-enrichment-rest-model)
-[![Coverage Status](https://coveralls.io/repos/github/ndexbio/ndex-enrichment-rest-model/badge.svg?branch=master)](https://coveralls.io/github/ndexbio/ndex-enrichment-rest-model?branch=master)
 
-Contains Java Pojo objects needed by NDEx Enrichment services
+NOTE NDEx Enrichment Object Model Repo has been deprecated
+============================================================
+
+**As of release 0.8.0, classes in this repo have been moved into 
+[NDEx Pathway Relevance REST Service](https://github.com/cytoscape/ndex-enrichment-rest)**
+
+
+Formerly contained Java Pojo objects needed by NDEx Enrichment services
 
 
 
@@ -20,7 +23,6 @@ Requirements
 ============
 
 * [Java][java] 11+ **(jdk to build)**
-
 
 
 Building  
@@ -57,3 +59,6 @@ Acknowledgements
 ================
 
 TODO
+
+**As of release 0.8.0, classes in this repo have been moved into 
+[NDEx Pathway Relevance REST Service](https://github.com/cytoscape/ndex-enrichment-rest)**
